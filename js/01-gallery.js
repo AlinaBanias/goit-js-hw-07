@@ -35,7 +35,7 @@ function onGalleryContainerClick(event) {
 instance.show();
 
 function onEscapeButton(evt) {
-    if(evt.code === "Escape") {
+    if(evt.key === "Escape") {
         instance.close();
     }
     }
