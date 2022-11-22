@@ -18,43 +18,18 @@ function onGalleryContainerClick(event) {
        return;
    }
    console.log(isGalleryItem);
-
-   var lightbox = new SimpleLightbox('.gallery a', 
-    ` <div class="modal"> 
-      <img src="${event.target.dataset.source}" alt="Big Pictures" width= "800" height= "600"/>
-      </div> `,
-    {
-        onShow: (lightbox) => {
-        galleryContainer.addEventListener("keydown", onEscapeButton);
-    },
-       onClose: (lightbox) => {
-        galleryContainer.removeEventListener("keydown", onEscapeButton);
-},
-}
-   
-);
-lightbox.show();
-
-function onEscapeButton(evt) {
-    if(evt.key === "Escape") {
-        lightbox.close();
-    }
-    }
-
-   onGalleryContainerClick(isGalleryItem);
 }
 
-
-
-
-
-
+var lightbox = new SimpleLightbox('.gallery a', {
+captionsData: "alt",
+captionDelay: 250,
+});
 
 function createImageMarkup(images) {
     return images.map(({ preview , original , description }) => {
         return `
-        <a class="gallery__item" href="${preview}">
-       <img class="gallery__image" src="${original}"
+        <a class="gallery__item" href="${original}">
+       <img class="gallery__image" src="${preview}"
         alt="${description}" />
     </a >
         `;

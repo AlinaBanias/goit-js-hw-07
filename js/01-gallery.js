@@ -15,7 +15,7 @@ function onGalleryContainerClick(event) {
    
    const isGalleryItem = event.target.classList.contains("gallery__image");
    if(!isGalleryItem) {
-       return;
+       return
    }
    console.log(isGalleryItem);
 
@@ -40,13 +40,8 @@ function onEscapeButton(evt) {
     }
     }
 
-   onGalleryContainerClick(isGalleryItem);
+  //  onGalleryContainerClick(isGalleryItem);
 }
-
-
-
-
-
 
 
 function createImageMarkup(images) {
